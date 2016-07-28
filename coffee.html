@@ -57,17 +57,29 @@
         myImage.setAttribute('src', imageLink);        
     }
 
+    function makeCoffeeMachine(){
+        myImage.setAttribute('src', 'static/coffee_machine.jpg');        
+    }
+
     function makeCoffeeMug(){
         myImage.setAttribute('src', 'static/coffee_mug.jpg');        
     }
 
-    function coffeeTimer(milliSeconds) {
-        setTimeout(makeCoffeeMug, milliSeconds);
+    function makeCoffeeBeans(){
+        myImage.setAttribute('src', 'static/coffee_beans.jpg');        
+    }
+
+    function coffeeTimer(functionName, milliSeconds) {
+        setTimeout(functionName, milliSeconds);
     }
 
     function coffeeClick() {
-        makeCoffee('static/coffee_machine.jpg');
-        coffeeTimer(1500);
+        coffeeTimer(makeCoffeeMachine, 0);
+        console.log('making coffee machine');
+        coffeeTimer(makeCoffeeMug, 1500);
+        console.log('making coffee mug');
+        coffeeTimer(makeCoffeeBeans, 4000);
+        console.log('making coffee beans');
     }
 
     myImage.addEventListener('click', coffeeClick);
